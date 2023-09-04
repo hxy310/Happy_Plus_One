@@ -1,5 +1,4 @@
-name: happy plus one
- 
+name: Happy_Plus_One
 on:
   workflow_dispatch:
   push:
