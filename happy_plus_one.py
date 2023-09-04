@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
  
 #Server酱推送模块，PUSH_KEY替换自己的
 def send_message_fangtang(_item,_message):
-        PUSH_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'  #
+        PUSH_KEY = 'SCT169353T1DE8Qu64kVkM6u0EdDyQxwOe'  #
         api = 'https://sctapi.ftqq.com/' + PUSH_KEY + '.send'
         _d = {
                 "title": _item,
