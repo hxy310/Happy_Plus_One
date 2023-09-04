@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 os.environ.get('TOKEN')
 #Server酱推送模块，PUSH_KEY替换自己的
 if __name__ == '__main__':
-   def send_message_fangtang(_item,_message,TOKEN):
+   def send_message_fangtang(_item,_message):
         token = '${{ secrets.TOKEN }}'  #
         api = 'http://www.pushplus.plus/send?token=' + token + '.&content='
         _d = {
