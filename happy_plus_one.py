@@ -3,15 +3,16 @@ import requests
 from bs4 import BeautifulSoup
 
 os.environ.get('TOKEN')
-#Server酱推送模块，PUSH_KEY替换自己的
+#PushPlus推送模块
 if __name__ == '__main__':
-   def send_message_fangtang(_item,_message):
+   def pushplus(_item,_message):
         token = '${{ secrets.TOKEN }}'  #
-        api = 'http://www.pushplus.plus/send?token=' + token + '.&content='
+        api = 'http://www.pushplus.plus/send'
         _d = {
+                "token":{token},
                 "title": _item,
-                "desp": _message
-                }
+                "content": _message
+             }
         req = requests.post(api,data = _d)
         #print(req.text)
  
@@ -41,5 +42,5 @@ if __name__ == '__main__':
         desp="序号："+str(i)+'\n\r'+"游戏名称："+name+'\n\r'+"类型："+gametype+'\n\r'+"开始时间："+start+'\n\r'+"结束时间："+end+'\n\r'+"是否永久："+time+'\n\r'+"平台："+oringin+'\n\r'+"链接："+http+'\n\r'
 
 #推送
-   send_message_fangtang("今日喜加一",desp)
+   pushplus("今日喜加一",desp)
    #print(desp) 
