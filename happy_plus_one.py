@@ -1,9 +1,11 @@
+import os
 import requests
 from bs4 import BeautifulSoup
- 
+
+os.environ.get('TOKEN')
 #Server酱推送模块，PUSH_KEY替换自己的
 def send_message_fangtang(_item,_message):
-        token = '${{ secrets.token }}'  #
+        token = '${{ secrets.TOKEN }}'  #
         api = 'http://www.pushplus.plus/send?token=' + token + '.&content='
         _d = {
                 "title": _item,
@@ -36,7 +38,11 @@ for tr in tr:
         sp=str(td[6]).split('"')
         http=sp[3]
         desp="序号："+str(i)+'\n\r'+"游戏名称："+name+'\n\r'+"类型："+gametype+'\n\r'+"开始时间："+start+'\n\r'+"结束时间："+end+'\n\r'+"是否永久："+time+'\n\r'+"平台："+oringin+'\n\r'+"链接："+http+'\n\r'
- 
+
 #推送
-send_message_fangtang("今日喜加一",desp)
-#print(desp) 
+def main():
+    send_message_fangtang("今日喜加一",desp)
+    #print(desp) 
+
+if __name__ == '__main__':
+    main()
