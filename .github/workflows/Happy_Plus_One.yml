@@ -1,8 +1,9 @@
 name: Happy_Plus_One
 on:
   workflow_dispatch:
+  
   schedule:  
-    - cron:  0 1 * * *   #国际标准时间，北京时间+8
+     - cron:  0 1 * * *   #国际标准时间，北京时间+8
 jobs:
   my_job:
     runs-on: ubuntu-latest
