@@ -2,11 +2,10 @@ import os
 import requests
 from bs4 import BeautifulSoup
 
-os.environ.get('TOKEN')
 #PushPlus推送模块
 if __name__ == '__main__':
    def pushplus(_item,_message):
-        token = '${{ secrets.TOKEN }}'  #
+        token = os.environ.get('TOKEN')'  #
         api = 'http://www.pushplus.plus/send'
         _d = {
                 "token":{token},
@@ -43,4 +42,4 @@ if __name__ == '__main__':
 
 #推送
    pushplus("今日喜加一",desp)
-   #print(desp) 
+   print(desp) 
