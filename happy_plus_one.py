@@ -1,10 +1,9 @@
-import os
-import requests
+import sys
 from bs4 import BeautifulSoup
 
 # PushPlus推送模块
 def pushplus(_item, _message):
-    token = os.environ.get('TOKEN')
+    token = sys.argv[1]
     api = 'http://www.pushplus.plus/send'
     _d = {
         "token": token,
