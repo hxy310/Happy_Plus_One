@@ -4,7 +4,8 @@ from bs4 import BeautifulSoup
 
 os.environ.get('TOKEN')
 #Server酱推送模块，PUSH_KEY替换自己的
-def send_message_fangtang(_item,_message):
+if __name__ == '__main__':
+   def send_message_fangtang(_item,_message):
         token = '${{ secrets.TOKEN }}'  #
         api = 'http://www.pushplus.plus/send?token=' + token + '.&content='
         _d = {
@@ -14,19 +15,19 @@ def send_message_fangtang(_item,_message):
         req = requests.post(api,data = _d)
         #print(req.text)
  
-#爬取代码
-url='https://steamstats.cn/xi'
-headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.72 Safari/537.36 Edg/90.0.818.41'}
+   #爬取代码
+   url='https://steamstats.cn/xi'
+   headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.72 Safari/537.36 Edg/90.0.818.41'}
  
-r=requests.get(url,headers=headers)
-r.raise_for_status()
-r.encoding = r.apparent_encoding
-soup = BeautifulSoup(r.text, "html.parser")
-tbody=soup.find('tbody')
-tr=tbody.find_all('tr')
-i=1
-#desp="今日喜加一"+'\n'
-for tr in tr:
+   r=requests.get(url,headers=headers)
+   r.raise_for_status()
+   r.encoding = r.apparent_encoding
+   soup = BeautifulSoup(r.text, "html.parser")
+   tbody=soup.find('tbody')
+   tr=tbody.find_all('tr')
+   i=1
+   #desp="今日喜加一"+'\n'
+   for tr in tr:
         td=tr.find_all('td')
         name=td[1].string.strip().replace('\n', '').replace('\r', '')
         gametype=td[2].string.replace(" ","").replace('\n', '').replace('\r', '')
@@ -40,9 +41,5 @@ for tr in tr:
         desp="序号："+str(i)+'\n\r'+"游戏名称："+name+'\n\r'+"类型："+gametype+'\n\r'+"开始时间："+start+'\n\r'+"结束时间："+end+'\n\r'+"是否永久："+time+'\n\r'+"平台："+oringin+'\n\r'+"链接："+http+'\n\r'
 
 #推送
-def main():
-    send_message_fangtang("今日喜加一",desp)
-    #print(desp) 
-
-if __name__ == '__main__':
-    main()
+   send_message_fangtang("今日喜加一",desp)
+   #print(desp) 
