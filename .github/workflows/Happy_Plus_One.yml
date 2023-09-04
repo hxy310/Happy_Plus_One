@@ -19,5 +19,5 @@ jobs:
          python -m pip install --upgrade pip
          pip install beautifulsoup4
       - name: 'Epic/steam happy +1'  #运行py
-      - run: |
+        run: |
           python happy_plus_one.py ${{ secrets.TOKEN }}
