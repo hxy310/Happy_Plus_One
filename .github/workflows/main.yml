@@ -1,6 +1,7 @@
 name: happy plus one
  
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
